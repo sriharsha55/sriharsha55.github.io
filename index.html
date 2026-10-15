@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sri Harsha Medarametla | Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* ===== 1. COLORS & BASICS (change colors here) ===== */
+:root{
+  --bg:#0f1820; --panel:rgba(255,255,255,.04); --line:rgba(255,255,255,.10);
+  --text:#e8eef2; --muted:#9fb0bb; --accent:#4fd1c5;
+  --display:'Sora',system-ui,sans-serif; --body:'DM Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6;
+  background-image:radial-gradient(60% 40% at 80% 0%,rgba(79,209,197,.16),transparent 70%),
+  linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:auto,48px 48px,48px 48px;background-attachment:fixed}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* ===== 2. NAVIGATION ===== */
+header{position:sticky;top:0;z-index:5;backdrop-filter:blur(12px);background:rgba(15,24,32,.7);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font-family:var(--display);font-weight:700}
+nav{display:flex;gap:22px;color:var(--muted);font-size:15px}
+nav a:hover{color:var(--accent)}
+
+/* ===== 3. HERO ===== */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;padding:96px 0 80px}
+h1{font-family:var(--display);font-size:clamp(36px,5.4vw,62px);line-height:1.08;letter-spacing:-.02em}
+.type{color:var(--accent);min-height:1.6em;margin:18px 0 6px;font-size:20px}
+.type::after{content:"";display:inline-block;width:2px;height:1.1em;background:var(--accent);margin-left:3px;vertical-align:-3px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lead{color:var(--muted);font-size:18px;max-width:46ch}
+.btns{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{padding:12px 22px;border-radius:10px;border:1px solid var(--accent);color:var(--accent);font-weight:500;transition:.2s}
+.btn.solid{background:var(--accent);color:#06201d}
+.btn:hover{box-shadow:0 0 24px rgba(79,209,197,.35);transform:translateY(-2px)}
+.hero>*{animation:rise .7s ease both}
+.hero>*:nth-child(2){animation-delay:.15s}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}}
+
+/* ===== 4. ASK WIDGET (the AI touch) ===== */
+.ask{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;backdrop-filter:blur(8px);box-shadow:0 0 60px rgba(79,209,197,.08)}
+.ask h2{font-family:var(--display);font-size:20px}
+.ask p.sub{color:var(--muted);font-size:14px;margin:4px 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips button{font:inherit;font-size:14px;color:var(--text);background:transparent;border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;transition:.2s}
+.chips button:hover{border-color:var(--accent);color:var(--accent)}
+#answer{margin:16px 0;padding:14px;border-radius:10px;background:rgba(79,209,197,.08);min-height:92px;font-size:15px}
+.row{display:flex;gap:8px}
+.row input{flex:1;min-width:0;font:inherit;color:var(--text);background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:10px;padding:11px 14px}
+.row button{font:inherit;font-weight:500;background:var(--accent);color:#06201d;border:0;border-radius:10px;padding:0 20px;cursor:pointer}
+
+/* ===== 5. SECTIONS ===== */
+section.block{padding:72px 0;border-top:1px solid var(--line)}
+h2.title{font-family:var(--display);font-size:30px;margin-bottom:28px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:24px;transition:.25s}
+.card:hover{border-color:var(--accent);box-shadow:0 0 30px rgba(79,209,197,.12)}
+.card h3{font-family:var(--display);font-size:19px}
+.date{color:var(--muted);font-size:14px;margin:2px 0 10px}
+.card a.link{color:var(--accent);display:inline-block;margin-top:12px}
+.skills{display:flex;flex-wrap:wrap;gap:10px}
+.skills span{padding:8px 16px;border:1px solid var(--line);border-radius:10px;background:var(--panel)}
+footer{padding:36px 0;color:var(--muted);text-align:center;font-size:14px;border-top:1px solid var(--line)}
+
+/* ===== 6. PHONE SIZE ===== */
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding-top:56px}nav{gap:14px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header><div class="wrap">
+  <a class="logo" href="#top">Sri Harsha</a>
+  <nav><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<main id="top" class="wrap">
+  <div class="hero">
+    <div>
+      <h1>Hi, I'm Sri Harsha, a software developer.</h1>
+      <div class="type" id="typing" aria-live="off"></div>
+      <p class="lead">I build web apps and machine learning tools. I learn new technologies quickly and like turning an idea into something that works and is reliable.</p>
+      <div class="btns">
+        <a class="btn solid" href="#projects">See my projects</a>
+        <a class="btn" id="emailBtn" href="#contact">Email me</a>
+      </div>
+    </div>
+
+    <div class="ask">
+      <h2>Ask about Harsha</h2>
+      <p class="sub">Pick a question or type your own.</p>
+      <div class="chips" id="chips"></div>
+      <div id="answer">Try a question above to get started.</div>
+      <form class="row" id="askForm">
+        <input id="q" placeholder="e.g. What is OpenHealth?" aria-label="Your question">
+        <button type="submit">Ask</button>
+      </form>
+    </div>
+  </div>
+
+  <section class="block" id="projects">
+    <h2 class="title">Projects</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>OpenHealth</h3><p class="date">Graduation project, Dec 2023 to May 2024</p>
+        <p>An AI tool that detects multiple diseases from health data.</p>
+        <a class="link" data-link="github" href="#">View on GitHub</a>
+      </article>
+      <article class="card">
+        <h3>Hotel booking website</h3><p class="date">Internship project, Jun to Oct 2023</p>
+        <p>A website where guests can browse hotels and book rooms.</p>
+        <a class="link" data-link="github" href="#">View on GitHub</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <h2 class="title">Skills</h2>
+    <div class="skills">
+      <span>Python</span><span>Java</span><span>HTML</span><span>CSS</span>
+      <span>JavaScript</span><span>SQL</span><span>GitHub</span><span>ML / MLOps</span>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <h2 class="title">Experience and education</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>Intern, Topnotch Softwares</h3><p class="date">Visakhapatnam, Jun to Oct 2023</p>
+        <p>Built a hotel booking website.</p>
+      </article>
+      <article class="card">
+        <h3>B.Tech, Information Technology</h3><p class="date">GMR Institute of Technology, Rajam, 2020 to 2024</p>
+        <p>Interests: AI/ML, hackathons and volleyball.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="block" id="contact">
+    <h2 class="title">Contact</h2>
+    <p style="color:var(--muted);margin-bottom:20px">Open to fresher software roles. Send me a message.</p>
+    <div class="btns">
+      <a class="btn solid" data-link="email" href="#">Email</a>
+      <a class="btn" data-link="github" href="#">GitHub</a>
+      <a class="btn" data-link="linkedin" href="#">LinkedIn</a>
+    </div>
+  </section>
+</main>
+
+<footer>© 2026 Medarametla Sri Harsha</footer>
+
+<script>
+/* ===== 1. YOUR DETAILS (edit only this block) ===== */
+const ME = {
+  email:   "your-email@example.com",
+  github:  "https://github.com/your-username",
+  linkedin:"https://www.linkedin.com/in/your-profile"
+};
+
+/* ===== 2. ANSWERS FOR THE ASK BOX ===== */
+const FAQ = [
+  { label:"Projects",   keys:["project","openhealth","hotel","built","work"],
+    text:"Two main projects: OpenHealth, an AI tool that detects multiple diseases (graduation project, Dec 2023 to May 2024), and a hotel booking website built during his internship (Jun to Oct 2023)." },
+  { label:"Skills",     keys:["skill","tech","language","python","java","stack","know"],
+    text:"Python and Java (basics), HTML, CSS, JavaScript, SQL, GitHub, and ML / MLOps." },
+  { label:"Experience", keys:["experience","intern","job","topnotch","company"],
+    text:"Intern at Topnotch Softwares, Visakhapatnam (Jun to Oct 2023), where he built a hotel booking website." },
+  { label:"Education",  keys:["education","study","college","degree","btech","gmr","school"],
+    text:"B.Tech in Information Technology from GMR Institute of Technology, Rajam (2020 to 2024)." },
+  { label:"Contact",    keys:["contact","email","hire","reach","linkedin","github"],
+    text:"Use the Email, GitHub and LinkedIn buttons in the Contact section at the bottom of the page." }
+];
+const ans = document.getElementById("answer");
+function show(t){ ans.textContent = t; }
+
+/* chips */
+const chips = document.getElementById("chips");
+FAQ.forEach(f => {
+  const b = document.createElement("button");
+  b.textContent = f.label;
+  b.onclick = () => show(f.text);
+  chips.appendChild(b);
+});
+
+/* typed question: match keywords */
+document.getElementById("askForm").onsubmit = e => {
+  e.preventDefault();
+  const q = document.getElementById("q").value.toLowerCase();
+  const hit = FAQ.find(f => f.keys.some(k => q.includes(k)));
+  show(hit ? hit.text : "I can answer about projects, skills, experience, education and contact. Try one of those words.");
+};
+
+/* ===== 3. TYPING EFFECT ===== */
+const words = ["Web developer","AI / ML builder","Hackathon enthusiast","Fast learner"];
+const el = document.getElementById("typing");
+let w = 0, c = 0, del = false;
+function tick(){
+  const word = words[w];
+  el.textContent = word.slice(0, c);
+  if(!del && c === word.length){ del = true; return setTimeout(tick, 1400); }
+  if(del && c === 0){ del = false; w = (w + 1) % words.length; }
+  c += del ? -1 : 1;
+  setTimeout(tick, del ? 40 : 80);
+}
+tick();
+
+/* ===== 4. FILL IN YOUR LINKS ===== */
+document.querySelectorAll("[data-link]").forEach(a => {
+  const k = a.dataset.link;
+  a.href = k === "email" ? "mailto:" + ME.email : ME[k];
+  if(k !== "email") a.target = "_blank";
+});
+document.getElementById("emailBtn").href = "mailto:" + ME.email;
+</script>
+</body>
+</html>
